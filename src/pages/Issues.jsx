@@ -52,7 +52,7 @@ export default function Issues() {
             {isSuccess && (
                 <>
                     <div className="issues-heading">
-                        <a href="#">facebook / create-react-app</a>
+                        <a href="https://github.com/facebook/create-react-app">facebook / create-react-app</a>
                         <div className="open-closed-buttons">
                             <button onClick={() => setFilter("open")}>
                                 <IconOpen />
@@ -75,7 +75,7 @@ export default function Issues() {
                                 <div className="issues-entry-title-container">
                                     {issue.state === "open" ? <IconOpen /> : <IconClosed />}
                                     <div className="issues-title">
-                                        <Link to={`/issues/1`}>{issue.title}</Link>
+                                        <Link to={`/issues/${issue.number}`}>{issue.title}</Link>
                                         <div className="issues-title-details">
                                             #{issue.number} opened &nbsp;
                                             {formatDistance(subDays(new Date(), 7), parseISO(issue.created_at), {
@@ -86,7 +86,7 @@ export default function Issues() {
                                     </div>
                                 </div>
                                 {issue.comments > 0 && (
-                                    <Link to={`/issues/1`} href="#" className="comments-count-container">
+                                    <Link to={`/issues/${issue.number}`} href="#" className="comments-count-container">
                                         <IconComment />
                                         <div className="comments-count">{issue.comments}</div>
                                     </Link>
