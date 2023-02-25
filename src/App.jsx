@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import "./index.css";
 import "./App.css";
+import "./assets/github-markdown.css";
 import Issues from "./pages/Issues";
 import Details from "./pages/Details";
 

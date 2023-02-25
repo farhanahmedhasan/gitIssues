@@ -1,6 +1,7 @@
 import { formatDistance, parseISO, subDays } from "date-fns";
 import { useQuery } from "react-query";
 import React from "react";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 export default function Comments({ issueNumber }) {
     const { isLoading, isSuccess, data: comments } = useQuery(["comments", issueNumber], fetchComments);
@@ -29,7 +30,9 @@ export default function Comments({ issueNumber }) {
                                         addSuffix: true,
                                     })}
                                 </div>
-                                <div className="comment-body">{comment.body}</div>
+                                <div className="comment-body markdown-body">
+                                    <ReactMarkdown children={comment.body} />
+                                </div>
                             </div>
                         </div>
                     ))}

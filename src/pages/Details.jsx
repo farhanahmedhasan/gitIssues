@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { formatDistance, parseISO, subDays } from "date-fns";
 
 import Comments from "../components/Comments";
@@ -42,7 +43,9 @@ export default function Details() {
                                         addSuffix: true,
                                     })}
                                 </div>
-                                <div className="comment-body">{issue.body}</div>
+                                <div className="comment-body markdown-body">
+                                    <ReactMarkdown children={issue.body} />
+                                </div>
                             </div>
                         </div>
                     )}
